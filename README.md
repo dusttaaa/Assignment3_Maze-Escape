@@ -24,7 +24,6 @@ The 13 lines printed by java -cp out Main on my data:
     Fastest route cost: 16
 
 My maze:
-
 ![maze](output/maze.png)
 
 ## Questions
@@ -75,9 +74,8 @@ Let (n) be the number of cells, (m) the number of walls or slides, and (z) the n
 | Prim |(O(m\log m)) |(O(n+m)) |Adjacency lists and priority queue |
 | DFS |(O(n+m)) |(O(n)) |Iterative DFS on the maze graph |
 | Kosaraju |(O(n+m)) |(O(n+m)) |Two graph traversals using the original and reversed graphs |
-| Route in the zone graph |See note below |(O(n+m+z)) |Depends on the implementation of the zone traversal |
+| Route in the zone graph | O(z*n + m) |(O(n+m+z)) | Each zone scans all cells; slide adjacency is built once |
 
-Route complexity note: The current implementation should be reviewed before assigning a final time complexity. If Graphs.slidesFrom(s) rebuilds the full adjacency structure every time it is called inside the cell loop, this adds substantial overhead. Building that structure once and reusing it would make the route calculation more efficient; the final complexity should reflect the code actually submitted.
 
 ## Before you submit
 
